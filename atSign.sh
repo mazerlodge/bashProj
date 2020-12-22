@@ -2,5 +2,6 @@
 
 printf "Started with: %s\n" $@
 
-echo $@
+printf "There were %d parameters.\n" $#
 
+echo $@
