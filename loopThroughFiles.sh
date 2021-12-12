@@ -1,5 +1,7 @@
 #!/bin/bash
 
+targetFilePrefix="./data/SourceSystem_Topic__"
+
 declare -i maxDatePart=0
 declare -i maxTimePart=0
 for currFile in ./data/*; 
@@ -9,7 +11,7 @@ do
 	echo "Working on file with prefix $filePrefix"
 
 	# only check datestamp on files that match the target prefix
-	if [ "$filePrefix" = "./data/SourceSystem_Topic__" ]; 
+	if [ "$filePrefix" = $targetFilePrefix ]; 
 	then 
 		dateStamp=${currFile:27:14}
 		echo "Got dateStamp $dateStamp"
@@ -37,3 +39,5 @@ do
 	fi 
 
 done
+maxFilename=($targetFilePrefix$maxDatePart$maxTimePart)
+echo "The max filename is $maxFilename"
